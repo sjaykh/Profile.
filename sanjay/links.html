@@ -24,7 +24,9 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Varela+Round:400"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800&display=swap" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
 <script type="text/javascript">SQUARESPACE_ROLLUPS = {};</script>
 <script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/common-vendors-6d5f7113c0ae30cf6eec2-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common_vendors');</script>
 <script crossorigin="anonymous" src="../assets.squarespace.com/universal/scripts-compressed/common-vendors-6d5f7113c0ae30cf6eec2-min.en-US.js" ></script><script>(function(rollups, name) { if (!rollups[name]) { rollups[name] = {}; } rollups[name].js = ["//assets.squarespace.com/universal/scripts-compressed/common-01b5eb0c070ceabc89975-min.en-US.js"]; })(SQUARESPACE_ROLLUPS, 'squarespace-common');</script>
@@ -42,8 +44,10 @@
     line-height: 1.7 !important;
   }
   h1.logo {
-    font-size: 30px !important;
+    /* font-size: 30px !important; */
+    font-weight: 800 !important;
     font-family: 'Nunito' !important;
+    padding: 5px;
     
   }
   .site-info { display: none !important; }
@@ -89,26 +93,51 @@ ul {
   padding-top: 60px;
 }
 
-/* move menu to top
-div#mobileMenuLink a {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
+.sub {
+font-family: 'Nunito';
+padding: 0 0 15px;
+
 }
-/* Fix overlap content 
-div#mobileNav.menu-open {
-    margin-top: 30px;
+#content {
+background: #fff;
+display: none;
+text-align: center;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+border-bottom-color: #ddd;
 }
-/* remove bottom old position 
-div#mobileMenuLink {
-    border-bottom: none;
+ul#content li {
+list-style: none;
+text-align: center;
+padding: 5px ;
+font-size: 1.5em;
+
 }
-/* replace border bottom to border top 
-#mobileNav .wrapper {
-    border-bottom: none;
-    border-top: 2px solid rgba(0,0,0,0.1);
-} */
+
+#content a{
+  font-family: 'Nunito';
+  font-size: 12px;
+  line-height: 1.6em;
+  text-transform: uppercase !important;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(153,153,153,.7);
+  font-size: 16px !important;
+  line-height: 2em !important;
+}
+
+#content a:hover{
+  color: #686767;
+}
+
+@media (max-width: 649px){
+  #canvas{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
 
 </style>
 <!-- End of Squarespace Headers -->
@@ -119,9 +148,9 @@ div#mobileMenuLink {
 
   <div id="canvas">
 
-    <div id="mobileNav" class="">
+    <div id="mobileNav mobile-menu" class="sub">
       <div class="wrapper">
-        <nav class="main-nav mobileNav"><ul>
+        <nav class="main-nav mobileNav"><ul id="content">
   
     
 
@@ -234,9 +263,16 @@ div#mobileMenuLink {
       </div>
     </div>
     <div id="mobileMenuLink"><a>Menu</a></div>
-    <!-- <script>function(e) {
-      s.fire(b.getEvent(e, t, i || !1 === r))
-    }</script> -->
+    <script>$(document).ready(function() {
+
+      $('#mobileMenuLink').click(function() {
+      
+      $('#content').slideToggle(1000); 
+      
+      });
+      
+      });</script>
+
 
     <header id="header" class="clear">
 
